@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE8B4205247CB162007064F4 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8B4204247CB162007064F4 /* AppKit.framework */; };
+		CE8B4207247CB2AE007064F4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8B4206247CB2AE007064F4 /* Cocoa.framework */; };
+		CE94DCEE247C3959006E0AFA /* ObjCWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE94DCED247C3959006E0AFA /* ObjCWindow.mm */; };
+		CEB1D2BB247997BD00C69B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB1D2BA247997BD00C69B27 /* Assets.xcassets */; };
+		CEB1D2CD2479BC0600C69B27 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEB1D2CB2479BC0600C69B27 /* main.mm */; };
+		CEB57DB4247C47FD00CF8695 /* CppApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CEB57DB2247C47FD00CF8695 /* CppApplication.cpp */; };
+		CEB57DB8247C52A600CF8695 /* CppWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEB57DB6247C52A600CF8695 /* CppWindow.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE8B4204247CB162007064F4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		CE8B4206247CB2AE007064F4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		CE94DCEC247C3959006E0AFA /* ObjCWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWindow.h; sourceTree = "<group>"; };
+		CE94DCED247C3959006E0AFA /* ObjCWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWindow.mm; sourceTree = "<group>"; };
+		CEB1D2B4247997BC00C69B27 /* DemoGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB1D2BA247997BD00C69B27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEB1D2BF247997BD00C69B27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEB1D2C2247997BD00C69B27 /* SimpleCppGameLoop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleCppGameLoop.entitlements; sourceTree = "<group>"; };
+		CEB1D2CB2479BC0600C69B27 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		CEB57DB2247C47FD00CF8695 /* CppApplication.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CppApplication.cpp; sourceTree = "<group>"; };
+		CEB57DB3247C47FD00CF8695 /* CppApplication.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CppApplication.hpp; sourceTree = "<group>"; };
+		CEB57DB6247C52A600CF8695 /* CppWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CppWindow.mm; sourceTree = "<group>"; };
+		CEB57DB7247C52A600CF8695 /* CppWindow.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CppWindow.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEB1D2B1247997BC00C69B27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE8B4207247CB2AE007064F4 /* Cocoa.framework in Frameworks */,
+				CE8B4205247CB162007064F4 /* AppKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE8B4203247CB162007064F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE8B4206247CB2AE007064F4 /* Cocoa.framework */,
+				CE8B4204247CB162007064F4 /* AppKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEB1D2AB247997BC00C69B27 = {
+			isa = PBXGroup;
+			children = (
+				CEB1D2B6247997BC00C69B27 /* SimpleCppGameLoop */,
+				CEB1D2B5247997BC00C69B27 /* Products */,
+				CE8B4203247CB162007064F4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CEB1D2B5247997BC00C69B27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEB1D2B4247997BC00C69B27 /* DemoGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEB1D2B6247997BC00C69B27 /* SimpleCppGameLoop */ = {
+			isa = PBXGroup;
+			children = (
+				CEB1D2CB2479BC0600C69B27 /* main.mm */,
+				CE94DCEC247C3959006E0AFA /* ObjCWindow.h */,
+				CEB57DB6247C52A600CF8695 /* CppWindow.mm */,
+				CEB57DB7247C52A600CF8695 /* CppWindow.hpp */,
+				CE94DCED247C3959006E0AFA /* ObjCWindow.mm */,
+				CEB1D2BA247997BD00C69B27 /* Assets.xcassets */,
+				CEB1D2BF247997BD00C69B27 /* Info.plist */,
+				CEB1D2C2247997BD00C69B27 /* SimpleCppGameLoop.entitlements */,
+				CEB57DB2247C47FD00CF8695 /* CppApplication.cpp */,
+				CEB57DB3247C47FD00CF8695 /* CppApplication.hpp */,
+			);
+			path = SimpleCppGameLoop;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEB1D2B3247997BC00C69B27 /* DemoGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEB1D2C5247997BD00C69B27 /* Build configuration list for PBXNativeTarget "DemoGame" */;
+			buildPhases = (
+				CEB1D2B0247997BC00C69B27 /* Sources */,
+				CEB1D2B1247997BC00C69B27 /* Frameworks */,
+				CEB1D2B2247997BC00C69B27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoGame;
+			productName = SimpleCppGameLoop;
+			productReference = CEB1D2B4247997BC00C69B27 /* DemoGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEB1D2AC247997BC00C69B27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Michael Martz";
+				TargetAttributes = {
+					CEB1D2B3247997BC00C69B27 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = CEB1D2AF247997BC00C69B27 /* Build configuration list for PBXProject "SimpleCppGameLoop" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CEB1D2AB247997BC00C69B27;
+			productRefGroup = CEB1D2B5247997BC00C69B27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEB1D2B3247997BC00C69B27 /* DemoGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEB1D2B2247997BC00C69B27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB1D2BB247997BD00C69B27 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEB1D2B0247997BC00C69B27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEB1D2CD2479BC0600C69B27 /* main.mm in Sources */,
+				CEB57DB8247C52A600CF8695 /* CppWindow.mm in Sources */,
+				CEB57DB4247C47FD00CF8695 /* CppApplication.cpp in Sources */,
+				CE94DCEE247C3959006E0AFA /* ObjCWindow.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CEB1D2C3247997BD00C69B27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CEB1D2C4247997BD00C69B27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CEB1D2C6247997BD00C69B27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SimpleCppGameLoop/SimpleCppGameLoop.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SimpleCppGameLoop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelMartz.SimpleCppGameLoop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CEB1D2C7247997BD00C69B27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SimpleCppGameLoop/SimpleCppGameLoop.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SimpleCppGameLoop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.MichaelMartz.SimpleCppGameLoop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEB1D2AF247997BC00C69B27 /* Build configuration list for PBXProject "SimpleCppGameLoop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB1D2C3247997BD00C69B27 /* Debug */,
+				CEB1D2C4247997BD00C69B27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEB1D2C5247997BD00C69B27 /* Build configuration list for PBXNativeTarget "DemoGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB1D2C6247997BD00C69B27 /* Debug */,
+				CEB1D2C7247997BD00C69B27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEB1D2AC247997BC00C69B27 /* Project object */;
+}
