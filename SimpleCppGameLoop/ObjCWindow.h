@@ -1,7 +1,5 @@
 #import <Cocoa/Cocoa.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 /// A class represening a Cocoa window in native Objective-C.  It's an NSWindow that's its own delegate.
 @interface ObjCWindow : NSWindow <NSWindowDelegate>
 
@@ -9,5 +7,3 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)createWithTitle: (NSString*) windowTitle;
 
 @end
-
-NS_ASSUME_NONNULL_END

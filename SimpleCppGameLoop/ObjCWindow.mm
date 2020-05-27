@@ -1,5 +1,5 @@
 #import "ObjCWindow.h"
-#import "CppApplication.hpp"
+#include "CppApplication.hpp"
 
 ObjCWindow * _windowHandle = nil;
 

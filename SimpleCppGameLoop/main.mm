@@ -10,6 +10,7 @@
 #import <AppKit/AppKit.h>
 #include "CppApplication.hpp"
 
+// Event Handlers ======================================================================================================
 
 /// The NSApplication delegate for this app.  The delegate receives messages from macOS and allows you to handle them.
 @interface DemoAppDelegate : NSObject <NSApplicationDelegate>
@@ -36,6 +37,8 @@
         return NSTerminateNow;
 }
 
+// Init =================================================================================================================
+
 /// Called right before the application opens.  Set up Cocoa stuff here.
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
     @autoreleasepool {
@@ -60,7 +63,7 @@
     }
 }
 
-// ======================================================================================================================
+// Main Loop ============================================================================================================
 
 /// First thing called once the app is running.  This is where we supplant the AppKit event loop with our own.
 - (void)applicationDidFinishLaunching:(NSNotification *)Notification {
