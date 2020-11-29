@@ -17,7 +17,7 @@ ObjCWindow * _windowHandle = nil;
             style |= NSWindowStyleMaskFullSizeContentView;
             style |= NSWindowStyleMaskMiniaturizable;
             
-            // Allocate window
+            // Allocate window (Set your initial window size here)
             _windowHandle = [[ObjCWindow alloc] initWithContentRect:NSMakeRect(0, 0, 1080, 720)
                                                           styleMask:style
                                                             backing:NSBackingStoreBuffered
@@ -52,10 +52,10 @@ ObjCWindow * _windowHandle = nil;
 /// Handle when the user clicks the close button.
 - (BOOL)windowShouldClose:(NSWindow*)sender
 {
-    // We don't close the window here.  Instead, we treat this as a request to quit the game.
-    // When the main loop breaks, the window will be closed automatically.
-    
     CppApplication::Quit();
+
+	// We don't close the window here.  Instead, we treat this as a request to quit the game.
+	// When the main loop breaks, the window will be closed automatically.
     return NO;
 }
 

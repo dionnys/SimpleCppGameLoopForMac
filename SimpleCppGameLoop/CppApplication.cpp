@@ -3,9 +3,10 @@
 
 #include <iostream>
 
-bool CppApplication::_isRunning = true;
+static bool isRunning = true;
 
-CppApplication::CppApplication() {
+CppApplication::CppApplication()
+{
     // Game initialization code goes here.
     // ...
     
@@ -14,27 +15,30 @@ CppApplication::CppApplication() {
     CppWindow::createWithTitle("Demo Game Title"); // Create the game window.
 }
 
-bool CppApplication::Run() {
+bool CppApplication::Run()
+{
     // Game loop code goes here.
     // ...
     
     std::cout << "Run() called!" << std::endl;
     
-    return _isRunning;
+    return isRunning;
 }
 
-CppApplication::~CppApplication() {
+CppApplication::~CppApplication()
+{
     // Game cleanup goes here.
     // ...
     
     std::cout << "Application destructor called!" << std::endl;
 }
 
-void CppApplication::Quit() {
-    // Handle a request to quit the game.
+void CppApplication::Quit()
+{
+    // Handle a request to quit the game here.
     // ...
     
     std::cout << "Quit() invoked." << std::endl;
     
-    _isRunning = false;
+	isRunning = false; // Setting the _isRunning variable to false breaks the main loop.
 }

@@ -1,48 +1,33 @@
 /* Simple C++ Game Loop in macOS
-    This application is a simple implementation of an Objective-C++ game loop in Cocoa with a C++ wrapper.
-    It sets up an application, starts the game loop, and invokes pure C++ code in CppApplication.cpp.
- 
-    There aren't a lot of resources around that help folks figure out how to set up a game loop in macOS,
-    let alone how to do it in C++.  While more Objective-C will be required to add input, graphics, and audio
-    support, this at least demonstrates how to get started with a C++ game engine on Mac.
+ 	This application is a simple implementation of an Objective-C++ game loop in Cocoa for C++ game projects.
+	It sets up an application, starts the game loop, and shows a simple way to do a platform abstraction layer on macOS.
  */
 
 #import <AppKit/AppKit.h>
 #include "CppApplication.hpp"
 
-// Event Handlers ======================================================================================================
-
-/// The NSApplication delegate for this app.  The delegate receives messages from macOS and allows you to handle them.
+/// The game's macOS app delegate.  This class's callbacks allow you to handle messages from macOS.
 @interface DemoAppDelegate : NSObject <NSApplicationDelegate>
 @end
-
-
 @implementation DemoAppDelegate
 
-/// Custom event callback, invoked when Quit is selected from the Dock menu.
+/// Invoked when the user selects "Quit" from the dock.
 - (void)handleQuitFromDock:(NSAppleEventDescriptor*)Event withReplyEvent:(NSAppleEventDescriptor*)ReplyEvent
 {
-    [NSApp terminate:self]; // Passes the buck to applicationShouldTerminate:.
+	CppApplication::Quit();
 }
 
-/// Event callback invoked when the user quits from menu bar, or when [NSApp terminate:] is called.
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)Sender;
+/// Invoked when the user selects "Quit" from the menu bar.
+- (void)handleQuitFromAppMenu
 {
-    if (CppApplication::_isRunning)
-    {
-        CppApplication::Quit(); // Tell the game the user wants to quit.
-        return NSTerminateCancel; // Prevent macOS from quitting for us.
-    }
-    else
-        return NSTerminateNow;
+	CppApplication::Quit();
 }
 
-// Init =================================================================================================================
-
-/// Called right before the application opens.  Set up Cocoa stuff here.
-- (void)applicationWillFinishLaunching:(NSNotification *)notification {
-    @autoreleasepool {
-        
+// Called right before the application opens.  Set up Cocoa stuff, like the menu bar, here.
+- (void)applicationWillFinishLaunching:(NSNotification *)notification
+{
+    @autoreleasepool
+	{
         // Set the custom callback for when Quit is selected from the Dock menu
         [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self
                                                            andSelector:@selector(handleQuitFromDock:withReplyEvent:)
@@ -56,61 +41,68 @@
         NSMenu* AppMenuImpl = [NSMenu new]; // Contents of application menu
         [AppMenu setSubmenu:AppMenuImpl];
         NSMenuItem* QuitOption = [[NSMenuItem alloc]initWithTitle:@"Quit" // Quit option
-                                                           action:@selector(terminate:)
+                                                           action:@selector(handleQuitFromAppMenu)
                                                     keyEquivalent:@""];
         [AppMenuImpl addItem:QuitOption];
         [NSApp setMainMenu:MenuBar]; // Register our choices
     }
 }
 
-// Main Loop ============================================================================================================
-
-/// First thing called once the app is running.  This is where we supplant the AppKit event loop with our own.
-- (void)applicationDidFinishLaunching:(NSNotification *)Notification {
-    @autoreleasepool {
-        
-        /**
-         This try block is for exceptions thrown by your C++ code.  Be careful if you decide to get rid of this -- the scope of the try block is used here to invoke the
-         destructor for CppApplication.  [NSApp terminate:] never returns, so the method scope never terminates.  */
-        try
-        {
-            CppApplication app; // Instantiate the C++ app
-            
-            // The Main loop! -------------------------------
-            do
-            {
-                // Dispatch messages from the OS
-                while( NSEvent *e = [NSApp nextEventMatchingMask: NSEventMaskAny
-                                                       untilDate: nil
-                                                          inMode: NSDefaultRunLoopMode
-                                                         dequeue: true] )
-                {
-                    [NSApp sendEvent: e];
-                }
-            }
-            while (app.Run()); // Invoke the C++ game loop code.
-        }
-        catch (...)
-        {
-            // Handle exceptions from the C++ app here.
-            NSLog(@"C++ exception caught!");
-            exit(EXIT_FAILURE);
-        }
-        
-        // The C++ app's destructor is called automatically after leaving the try block.
-        
-        [NSApp terminate:self];
-    }
-}
-
 @end
 
 /// Entry point.  Only used to create a native application object and kick off its event loop, which we'll hijack later.
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        [NSApplication sharedApplication];
-        [NSApp setDelegate:[DemoAppDelegate new]];
-        [NSApp run];
-    }
-    return 0;
+int main(int argc, const char * argv[])
+{
+	@autoreleasepool
+	{
+		// Create application
+		[NSApplication sharedApplication];
+
+		// Set up custom app delegate
+		DemoAppDelegate * delegate = [[DemoAppDelegate alloc] init];
+		[NSApp setDelegate:delegate];
+
+		// Activate and launch the app
+		[NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+		[NSApp setPresentationOptions:NSApplicationPresentationDefault];
+		[NSApp activateIgnoringOtherApps:YES];
+		[NSApp finishLaunching];
+
+		try
+		{
+			CppApplication app; // App constructor initializes your game code
+			NSEvent *e;
+
+			do
+			{
+				do // Pump macOS messages
+				{
+					e = [NSApp nextEventMatchingMask: NSEventMaskAny
+										   untilDate: nil
+											  inMode: NSDefaultRunLoopMode
+											 dequeue: YES];
+					if (e)
+					{
+						[NSApp sendEvent: e];
+						[NSApp updateWindows];
+					}
+				}
+				while (e);
+			}
+			while (app.Run()); // The loop condition itself steps the game logic
+
+		} // The app object's destructor calls game cleanup code upon leaving the try block.
+		catch (...)
+		{
+			// You can handle exceptions from the C++ app here.
+
+			// Note that the application destructor is called upon leaving the 'try' block.  If you disable exceptions
+			// in your C++ project, you'll either want to turn the try block into a simple compund statement (an
+			// unlabeled block) or implement an explicit cleanup function.
+
+			NSLog(@"C++ exception caught!");
+			exit(EXIT_FAILURE);
+		}
+	}
+	return 0;
 }

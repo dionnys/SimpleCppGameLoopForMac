@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CE8B4205247CB162007064F4 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8B4204247CB162007064F4 /* AppKit.framework */; };
-		CE8B4207247CB2AE007064F4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8B4206247CB2AE007064F4 /* Cocoa.framework */; };
 		CE94DCEE247C3959006E0AFA /* ObjCWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE94DCED247C3959006E0AFA /* ObjCWindow.mm */; };
 		CEB1D2BB247997BD00C69B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB1D2BA247997BD00C69B27 /* Assets.xcassets */; };
 		CEB1D2CD2479BC0600C69B27 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = CEB1D2CB2479BC0600C69B27 /* main.mm */; };
@@ -18,7 +17,6 @@
 
 /* Begin PBXFileReference section */
 		CE8B4204247CB162007064F4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		CE8B4206247CB2AE007064F4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CE94DCEC247C3959006E0AFA /* ObjCWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCWindow.h; sourceTree = "<group>"; };
 		CE94DCED247C3959006E0AFA /* ObjCWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCWindow.mm; sourceTree = "<group>"; };
 		CEB1D2B4247997BC00C69B27 /* DemoGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +35,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8B4207247CB2AE007064F4 /* Cocoa.framework in Frameworks */,
 				CE8B4205247CB162007064F4 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +45,6 @@
 		CE8B4203247CB162007064F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE8B4206247CB2AE007064F4 /* Cocoa.framework */,
 				CE8B4204247CB162007064F4 /* AppKit.framework */,
 			);
 			name = Frameworks;
